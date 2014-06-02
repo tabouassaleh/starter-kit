@@ -1,15 +1,16 @@
 App.controller('home', function (page) {
 	// put stuff here
-	$(page)
-    .find('.app-button')
-    .on('click', function () {
-      var message = $('#input-message').val();
+	$(page).find('#button-send').click(function () {
+      var message = $(page).find('#input-message').val();
       kik.send({
-  	title: 'Incoming Message!',
-  	text: 'This will self-destruct 3 seconds after opening.',
-  	data: {'text': message}
+		  	title: 'Incoming Message!',
+		  	text: 'This will self-destruct 3 seconds after opening.',
+		  	data: {'text': message}
       });
-      console.log('message sent:', message);
+      App.dialog({
+      	title        : 'Message Sent' ,
+      	text         : 'Message sent:' + message,
+      });
     });
     if (kik.message) {
 	$('#message').show();
