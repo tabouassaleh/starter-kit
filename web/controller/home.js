@@ -4,7 +4,7 @@ App.controller('home', function (page) {
       var message = $(page).find('#input-message').val();
       kik.send({
 		  	title: 'Incoming Message!',
-		  	text: 'This will self-destruct 3 seconds after opening.',
+		  	text: 'This will self-destruct 10 seconds after opening: '+message,
 		  	data: {'text': message}
       });
       App.dialog({
@@ -17,6 +17,6 @@ App.controller('home', function (page) {
 		  $('#message .message-text').text(kik.message.text);
 		  setTimeout(function () {
 		    $('#message').hide();
-		  }, 3000); // Destroy message after 3 seconds.
+		  }, 10000); // Destroy message after 3 seconds.
 		}
 });
