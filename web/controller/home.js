@@ -5,13 +5,14 @@ App.controller('home', function (page) {
     .on('click', function () {
       var message = $('#input-message').val();
       kik.send({
-  			title: 'Incoming Message!',
-  			text: 'This will self-destruct 3 seconds after opening.',
-  			data: {'text': message}
-			});
+  	title: 'Incoming Message!',
+  	text: 'This will self-destruct 3 seconds after opening.',
+  	data: {'text': message}
+      });
+      console.log('message sent:', message);
     });
     if (kik.message) {
-		  $('#message').show();
+	$('#message').show();
 		  $('#message .message-text').text(kik.message.text);
 		  setTimeout(function () {
 		    $('#message').hide();
