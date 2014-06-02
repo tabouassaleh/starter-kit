@@ -10,13 +10,15 @@ App.controller('home', function (page) {
       App.dialog({
       	title        : 'Message Sent' ,
       	text         : 'Message sent:' + message,
+      	okButton     : 'OK'
       });
     });
     if (kik.message) {
 	$('#message').show();
 		  $('#message .message-text').text(kik.message.text);
-		  setTimeout(function () {
+		  /*setTimeout(function () {
 		    $('#message').hide();
 		  }, 10000); // Destroy message after 3 seconds.
+		  */
 		}
 });
