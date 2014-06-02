@@ -14,11 +14,16 @@ App.controller('home', function (page) {
       });
     });
     if (kik.message) {
+    	App.dialog({
+      	title        : 'Message Received' ,
+      	text         : 'Message received:' + kik.message.text,
+      	okButton     : 'OK'
+      });
 	$('#message').show();
 		  $('#message .message-text').text(kik.message.text);
 		  /*setTimeout(function () {
 		    $('#message').hide();
 		  }, 10000); // Destroy message after 3 seconds.
 		  */
-		}
+	}
 });
